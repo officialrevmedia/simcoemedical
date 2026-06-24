@@ -32,7 +32,7 @@ https://app.avaros.ca/av/weblink/simcoe in a new tab.
 
 ## Still to add before launch
 - Add a 1200 by 630 share image at /og-image.jpg (referenced for social link previews).
-- Connect the testimonials to the clinic Google Business Profile so real reviews appear.
+- Three real Google reviews are in place. Optionally connect a live feed later so new reviews appear automatically.
 - Set the Privacy Policy and Accessibility links in the footer.
 
 ## Notes
