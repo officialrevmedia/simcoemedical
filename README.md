@@ -84,3 +84,23 @@ but it was a live landmine. Replaced with the article table-of-contents behaviou
 **SEO.** Titles trimmed to 46-59 characters and descriptions to 151-168 so neither truncates.
 Sitemap rebuilt with all four URLs. Each article carries BlogPosting, BreadcrumbList and FAQPage
 JSON-LD with the clinic as MedicalClinic publisher.
+
+### Header fixes - 26 July 2026 (revision 2)
+
+- **Logo was distorted.** `logo.png` is 305x254 (aspect 1.20) but the CSS forced it into a 46x46 square,
+  squashing it 20% horizontally. Now `height:46px;width:auto;object-fit:contain`, with the HTML
+  width/height attributes corrected to 55x46 in the header and 58x48 in the footer.
+- **Nav items were wrapping.** Links had no `white-space:nowrap`, so "On-Site Care" and "New Patients"
+  broke onto two and three lines, pushing the nav to 85px inside a 78px bar. Added `nowrap` on both the
+  container and the links.
+- **Booking buttons were clipped.** The `.book-pair` was rendering 299px wide with 345px of content,
+  so `overflow:hidden` cut off the end of "Female Doctor". The pair, brand and header CTA are now all
+  `flex:none` so nothing gets compressed.
+- **Desktop nav trimmed from 7 items to 5**: About, Services, New Patients, Guides, Visit Us.
+  On-Site Care and FAQ remain in the mobile menu and the footer, and are still anchor sections on the
+  homepage, so nothing became unreachable.
+- **Breakpoints retuned.** Nav collapses to the burger at 1120px (was 1000px) and the phone number
+  drops out below 1320px, so the header never gets crowded at intermediate widths.
+
+Verified at 1600, 1440, 1366, 1280, 1200, 1150, 1120, 1080, 1024, 900, 768, 600, 430, 390 and 360px:
+no horizontal overflow, no nav wrapping, no clipped buttons, correct logo aspect at every width.
