@@ -163,11 +163,31 @@
       alert("New patient registration form: link the clinic's registration PDF here.");
     });
   });
-  document.querySelectorAll("[data-booking]").forEach(function (el) {
-    el.addEventListener("click", function (e) {
-      e.preventDefault();
-      var who = el.getAttribute("data-booking");
-      alert("Online booking (" + who + " doctor): connect your booking system link here.");
+  /* ---------- Article table of contents ---------- */
+  var tocT = document.querySelector(".toc-t");
+  if (tocT) {
+    var wide = window.matchMedia("(min-width: 1021px)");
+    var syncToc = function () { tocT.open = wide.matches; };
+    syncToc();
+    if (wide.addEventListener) wide.addEventListener("change", syncToc);
+    else if (wide.addListener) wide.addListener(syncToc);
+  }
+
+  var tocLinks = document.querySelectorAll(".toc-t a[href^='#']");
+  if (tocLinks.length && "IntersectionObserver" in window) {
+    var tmap = {}, ttargets = [];
+    tocLinks.forEach(function (link) {
+      var el = document.getElementById(link.getAttribute("href").slice(1));
+      if (el) { tmap[el.id] = link; ttargets.push(el); }
     });
-  });
+    var tocIO = new IntersectionObserver(function (entries) {
+      var vis = entries.filter(function (e) { return e.isIntersecting; });
+      if (!vis.length) return;
+      vis.sort(function (a, b) { return a.boundingClientRect.top - b.boundingClientRect.top; });
+      tocLinks.forEach(function (l) { l.classList.remove("active"); });
+      var hit = tmap[vis[0].target.id];
+      if (hit) hit.classList.add("active");
+    }, { rootMargin: "-90px 0px -65% 0px", threshold: 0 });
+    ttargets.forEach(function (t) { tocIO.observe(t); });
+  }
 })();

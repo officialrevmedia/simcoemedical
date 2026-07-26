@@ -39,3 +39,48 @@ https://app.avaros.ca/av/weblink/simcoe in a new tab.
 The embedded Google Map and Google Fonts load over the internet, so they appear only
 when the page is served from a real domain or local server, not when opening the file
 directly from disk.
+
+---
+
+## Changelog - 26 July 2026
+
+**Dual booking buttons.** Every booking call to action is now a pair. Male doctor bookings go to
+`https://app.avaros.ca/av/weblink/simcoe` and female doctor bookings to
+`https://app.avaros.ca/av/weblink/simcoemc`. Both links appear 23 times across the site and are always
+paired. Locations: header (segmented `.book-pair`), mobile menu, hero, services CTA, forms band,
+booking options grid, visit card, final CTA, mobile sticky bar, article sidebars, and blog index.
+
+Note: the female URL was supplied as `.../simcoemc|` with a trailing pipe character. That was treated
+as a typo and the pipe was dropped. Confirm the link works before going live.
+
+**Clinic fax removed.** `(905) 215-2145` is gone from the visit card, the footer, and the
+`faxNumber` field in the MedicalClinic schema. The two physician fax numbers and the pharmacy fax
+(905) 579-0845 were left in place, since only the clinic fax was flagged for removal.
+
+**Oshawa Advance Imaging.** Linked from the on-site Ultrasound card, the footer Explore column,
+the blog index, and inside both articles. Also declared in the homepage schema via `isRelatedTo`.
+
+**Patient guides (blog) added.** Three new pages:
+
+| File | Purpose |
+| --- | --- |
+| `blog.html` | Guide index |
+| `find-a-family-doctor-oshawa-durham-region.html` | Published 13 Jul 2026 |
+| `walk-in-clinic-pharmacist-or-emergency-room-oshawa.html` | Published 21 Jul 2026 |
+
+A Guides link was added to the desktop nav, mobile menu, and footer, and a two-card guides section
+was added to the homepage above the final CTA. Sub-page nav anchors are rewritten to `index.html#...`
+so they return to the homepage correctly.
+
+**Article components** (see the BLOG section at the end of `styles.css`): `.keypoints` TL;DR box,
+`.tbl-wrap` responsive tables with a mobile scroll hint, `.art-steps` numbered timeline,
+`.levels` four-level care ladder, `.chips` condition tags, `.alert` and `.note` callouts,
+`.side-card` sticky contents, `.post-card` index cards.
+
+**Dead code removed.** `script.js` contained a `[data-booking]` click handler that fired a
+placeholder `alert()` reading "connect your booking system link here." No element used the attribute,
+but it was a live landmine. Replaced with the article table-of-contents behaviour.
+
+**SEO.** Titles trimmed to 46-59 characters and descriptions to 151-168 so neither truncates.
+Sitemap rebuilt with all four URLs. Each article carries BlogPosting, BreadcrumbList and FAQPage
+JSON-LD with the clinic as MedicalClinic publisher.
