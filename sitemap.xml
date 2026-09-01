@@ -2,13 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://www.simcoemedical.ca/</loc>
-    <lastmod>2026-07-26</lastmod>
+    <lastmod>2026-09-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://www.simcoemedical.ca/blog.html</loc>
-    <lastmod>2026-07-26</lastmod>
+    <lastmod>2026-09-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -21,6 +21,18 @@
   <url>
     <loc>https://www.simcoemedical.ca/find-a-family-doctor-oshawa-durham-region.html</loc>
     <lastmod>2026-07-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.simcoemedical.ca/flu-shot-fall-vaccines-oshawa-2026.html</loc>
+    <lastmod>2026-09-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.simcoemedical.ca/newcomers-guide-health-care-ontario-oshawa.html</loc>
+    <lastmod>2026-09-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
